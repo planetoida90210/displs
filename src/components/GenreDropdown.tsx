@@ -8,6 +8,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
+import Link from "next/link";
 
  async function GenreDropdown() {
 
@@ -33,11 +34,13 @@ import {
             Genre <ChevronDown className="ml-1" />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="bg-gray-900 dark:bg-gray-800">
-            <DropdownMenuLabel>Genre</DropdownMenuLabel>
+            <DropdownMenuLabel>Select a Genre</DropdownMenuLabel>
             <DropdownMenuSeparator />
             {data.genres.map((genre) => (
                 <DropdownMenuItem key={genre.id} className="text-white">
+                    <Link href={`/genre/${genre.id}?genre=${genre.name}`}>
                     {genre.name}
+                    </Link>
                 </DropdownMenuItem>
             ))}
         </DropdownMenuContent>
